@@ -1,7 +1,7 @@
 NAME = ItsATrap
 
 SRCS = ClapTrap.cpp \
-		main.cpp \
+	main.cpp \
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 

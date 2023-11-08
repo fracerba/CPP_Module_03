@@ -2,6 +2,7 @@ NAME = ItsATrap
 
 SRCS = ClapTrap.cpp \
 	ScavTrap.cpp \
+	FragTrap.cpp \
 	main.cpp \
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
