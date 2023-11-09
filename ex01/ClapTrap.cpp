@@ -3,7 +3,7 @@
 ClapTrap::ClapTrap()
 {
     std::cout<<"ClapTrap Default constructor called\n";
-    this->name = "Nameless";
+    this->name = "Default";
     this->hit_points = 10;
     this->energy_points = 10;
     this->attack_damage = 0;
@@ -11,7 +11,7 @@ ClapTrap::ClapTrap()
 
 ClapTrap::ClapTrap(std::string name)
 {
-    std::cout<<"ClapTrap String constructor called\n";
+    std::cout<<"ClapTrap "<<name<<" constructor called\n";
     this->name = name;
     this->hit_points = 10;
     this->energy_points = 10;
@@ -20,18 +20,18 @@ ClapTrap::ClapTrap(std::string name)
 
 ClapTrap::ClapTrap(const ClapTrap &Clap)
 {
-    std::cout<<"ClapTrap Copy constructor called\n";
+    std::cout<<"ClapTrap "<<Clap.getName()<<" Copy constructor called\n";
     *this = Clap;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout<<"ClapTrap Destructor called\n";
+    std::cout<<"ClapTrap "<<this->name<<" Destructor called\n";
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap &Clap)
 {
-    std::cout<<"ClapTrap Copy assignment operator called\n";
+    std::cout<<"ClapTrap "<<Clap.getName()<<" Copy assignment operator called\n";
     this->name = Clap.getName();
     this->hit_points = Clap.getHitPoints();
     this->energy_points = Clap.getEnergyPoints();
@@ -101,11 +101,6 @@ void ClapTrap::takeDamage(unsigned int amount)
     if(this->getHitPoints() <= 0)
     {
         std::cout<<"ClapTrap "<<this->getName()<<" has been destroyed!\n";
-        return ;
-    }
-    if(this->getEnergyPoints() <= 0)
-    {
-        std::cout<<"ClapTrap "<<this->getName()<<" has no energy left!\n";
         return ;
     }
     this->setHitPoints(this->getHitPoints() - amount);
