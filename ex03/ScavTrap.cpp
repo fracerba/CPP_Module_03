@@ -18,9 +18,9 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
     this->attack_damage = 20;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &Clap) : ClapTrap(Clap.getName())
+ScavTrap::ScavTrap(const ScavTrap &Clap) : ClapTrap(Clap.name)
 {
-    std::cout<<"ScavTrap "<<Clap.getName()<<" Copy constructor called\n";
+    std::cout<<"ScavTrap "<<Clap.name<<" Copy constructor called\n";
     *this = Clap;
 }
 
@@ -31,8 +31,8 @@ ScavTrap::~ScavTrap()
 
 ScavTrap& ScavTrap::operator=(const ScavTrap &Clap)
 {
-    std::cout<<"ScavTrap "<<Clap.getName()<<" Copy assignment operator called\n";
-    this->name = Clap.getName();
+    std::cout<<"ScavTrap "<<Clap.name<<" Copy assignment operator called\n";
+    this->name = Clap.name;
     this->hit_points = Clap.getHitPoints();
     this->energy_points = Clap.getEnergyPoints();
     this->attack_damage = Clap.getAttackDamage();
@@ -43,16 +43,16 @@ void ScavTrap::attack(const std::string& target)
 {
     if(this->getHitPoints() <= 0)
     {
-        std::cout<<"ScavTrap "<<this->getName()<<" has been destroyed!\n";
+        std::cout<<"ScavTrap "<<this->name<<" has been destroyed!\n";
         return ;
     }
     if(this->getEnergyPoints() <= 0)
     {
-        std::cout<<"ScavTrap "<<this->getName()<<" has no energy left!\n";
+        std::cout<<"ScavTrap "<<this->name<<" has no energy left!\n";
         return ;
     }
     this->setEnergyPoints(this->getEnergyPoints() - 1);
-    std::cout<<"ScavTrap "<<this->getName()<<" attacks "<<target<<", causing ";
+    std::cout<<"ScavTrap "<<this->name<<" attacks "<<target<<", causing ";
     std::cout<<this->getAttackDamage()<<" points of damage!\n";
 }
 
@@ -60,14 +60,14 @@ void ScavTrap::guardGate(void)
 {
     if(this->getHitPoints() <= 0)
     {
-        std::cout<<"ScavTrap "<<this->getName()<<" has been destroyed!\n";
+        std::cout<<"ScavTrap "<<this->name<<" has been destroyed!\n";
         return ;
     }
     if(this->getEnergyPoints() <= 0)
     {
-        std::cout<<"ScavTrap "<<this->getName()<<" has no energy left!\n";
+        std::cout<<"ScavTrap "<<this->name<<" has no energy left!\n";
         return ;
     }
-    std::cout<<"ScavTrap "<<this->getName()<<" is now in Gatekeeper mode!\n";
+    std::cout<<"ScavTrap "<<this->name<<" is now in Gatekeeper mode!\n";
 }
 

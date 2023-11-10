@@ -18,9 +18,9 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     this->attack_damage = 30;
 }
 
-FragTrap::FragTrap(const FragTrap &Clap) : ClapTrap(Clap.getName())
+FragTrap::FragTrap(const FragTrap &Clap) : ClapTrap(Clap.name)
 {
-    std::cout<<"FragTrap "<<Clap.getName()<<" Copy constructor called\n";
+    std::cout<<"FragTrap "<<Clap.name<<" Copy constructor called\n";
     *this = Clap;
 }
 
@@ -31,8 +31,8 @@ FragTrap::~FragTrap()
 
 FragTrap& FragTrap::operator=(const FragTrap &Clap)
 {
-    std::cout<<"FragTrap "<<Clap.getName()<<" Copy assignment operator called\n";
-    this->name = Clap.getName();
+    std::cout<<"FragTrap "<<Clap.name<<" Copy assignment operator called\n";
+    this->name = Clap.name;
     this->hit_points = Clap.getHitPoints();
     this->energy_points = Clap.getEnergyPoints();
     this->attack_damage = Clap.getAttackDamage();
@@ -43,13 +43,13 @@ void FragTrap::highFivesGuys(void)
 {
     if(this->getHitPoints() <= 0)
     {
-        std::cout<<"FragTrap "<<this->getName()<<" has been destroyed!\n";
+        std::cout<<"FragTrap "<<this->name<<" has been destroyed!\n";
         return ;
     }
     if(this->getEnergyPoints() <= 0)
     {
-        std::cout<<"FragTrap "<<this->getName()<<" has no energy left!\n";
+        std::cout<<"FragTrap "<<this->name<<" has no energy left!\n";
         return ;
     }
-    std::cout<<"FragTrap "<<this->getName()<<":\"Give me some high fives guys!\"\n";
+    std::cout<<"FragTrap "<<this->name<<":\"Give me some high fives guys!\"\n";
 }
